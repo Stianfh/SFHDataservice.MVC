@@ -175,3 +175,34 @@ function adminView() {
 </div>
     `;
 }
+
+function personView() {
+    return /*HtML*/`
+    <div id="personvern" class="section">
+        <div class="section-content">
+            <h2>Personvern</h2>
+            <p><strong>Vi samler inn nødvendig data</strong> for å tilby bedre support og tjenester.</p>
+            <p><strong>Ingen personopplysninger</strong> selges eller deles med tredjeparter uten samtykke.</p>
+            <p><strong>Du kan når som helst</strong> be om innsyn i dine lagrede data eller be om sletting.</p>
+            <p><strong>For mer informasjon,</strong> kontakt vår personvernansvarlige.</p>
+        </div>
+    </div>
+    `;
+}
+
+function vilView() {
+    return /*HtML*/`
+    <div id="vilkaar" class="section">
+        <div class="section-content">
+        <h2>Vilkår og Betingelser</h2>
+        <p>Ved bruk av våre tjenester godtar du følgende vilkår og betingelser:</p>
+        <ul>
+            <li><strong>Våre tjenester tilbys</strong> "som de er" uten garantier for tilgjengelighet eller feilfri drift.</li>
+            <li><strong>Brukere er ansvarlige</strong> for å følge gjeldende lover og regler ved bruk av våre tjenester.</li>
+            <li><strong>Misbruk eller ulovlig aktivitet</strong> kan føre til suspensjon eller terminering av tilgang.</li>
+            <li><strong>SFH Dataservice</strong> forbeholder seg retten til å oppdatere vilkårene ved behov.</li>
+        </ul>
+        </div>
+    </div>
+    `;
+}
