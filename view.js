@@ -24,6 +24,11 @@ const view = {
             <h2>Vilkår og Betingelser</h2>
             <p>Våre vilkår for bruk av tjenestene.</p>
         `
+        ,
+        FAQ:`
+        <h2>FAQ</h2>
+        <p>Spørsmål og svar fra våre kunder.</p>
+        `
     },
     // navbar: `
     //     <nav>
@@ -46,7 +51,8 @@ function backgroundPage(){
             <button onclick="changePage('admin')">Admin</button>
             <button onclick="changePage('personvern')">Personvern</button>
             <button onclick="changePage('vilkar')">Vilkår</button>
-        </nav>
+            <button onclick="changePage('FAQ')">FAQ</button>
+            </nav>
         ${updateView()}
     `
 }
@@ -64,7 +70,7 @@ function homePageView(){
     `;
 }
 
-function tjenester() {
+function tjenester() {  //bytte til for-løkke
     return /*HTML*/` 
         <div id="services" class="section">
             <div class="section-content">
@@ -91,7 +97,11 @@ function tjenester() {
                         <h3>Serveradministrasjon</h3>
                         <p>Vi tar ansvar for vedlikehold, overvåkning og optimalisering av servere. Våre løsninger sørger for at dine systemer fungerer feilfritt.</p>
                     </div>
-                </div>
+                    <div class="service-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Brukerstøtte</h3>
+                    <p>Vi tilbyr omfattende brukerstøtte via fjernhjelp, telefon og chat. Vi hjelper med feilsøking, opplæring, installasjoner og dokumentasjon.</p>
+                    </div>
             </div>
         </div>
     `
@@ -109,26 +119,28 @@ function helpdeskView() {
                 <div class="helpdesk-form-container">
                     <form id="helpdeskForm">
                         <label for="navn">Navn:</label>
-                        <input type="text" id="navn" name="navn" required>
+                        <input oninput="model.inputs.helpdesk.name = this.value">
     
                         <label for="telefon">Telefonnummer:</label>
-                        <input type="tel" id="telefon" name="telefon" required>
+                        <input oninput="model.inputs.helpdesk.tlf = this.value" type="tel" id="telefon" name="telefon" required>
     
                         <label for="email">E-post:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input oninput="model.inputs.helpdesk.email = this.value" type="email" id="email" name="email" required>
     
                         <label for="kategori">Kategori:</label>
-                        <select id="kategori" name="kategori" required>
+                        <select id="kategori" name="kategori" required> <!-- for-løkke -->
                             <option value="teknisk-support">Teknisk Support</option>
                             <option value="databaseservice">Databaseservice</option>
                             <option value="cloud-computing">Cloud Computing</option>
                             <option value="nettverksadministrasjon">Nettverksadministrasjon</option>
                             <option value="serveradministrasjon">Serveradministrasjon</option>
                             <option value="webutvikling">Webutvikling</option>
+                            <option value="brukerstotte">Brukerstøtte</option>
                         </select>
     
                         <label for="underkategori">Underkategori:</label>
-                        <select id="underkategori" name="underkategori" required>
+                        <select id="underkategori" name="underkategori" required> <!-- for-løkke -->
+                            <option value="Sjef">Sjef</option>
                         </select>
     
                         <label for="beskrivelse">Beskrivelse:</label>
@@ -149,7 +161,7 @@ function helpdeskView() {
     `;
 }
 
-function adminView() {
+function adminView() {  // for-løkke -> lagre i modell (oppgaver)
     return /*HTML*/` 
     <div class="section-content">
         <h2>Admin</h2>
@@ -206,3 +218,50 @@ function vilView() {
     </div>
     `;
 }
+
+function FAQView() {  //for-løkke med litt modelljobb??
+    return /*HTML*/`
+        <div id="FAQ" class="section">
+            <div class="section-content">
+                <h2>Vanlige Spørsmål (FAQ)</h2>
+                
+                <div class="faq-item">
+                    <h3>Hva er SFH Dataservice?</h3>
+                    <p>SFH Dataservice er et profesjonelt IT-tjenesteselskap som spesialiserer seg på teknisk support, nettverksadministrasjon, og cloud computing.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hvilke tjenester tilbyr SFH Dataservice?</h3>
+                    <p>Vi tilbyr tjenester som IKT-rådgivning, cloud computing, nettverksadministrasjon og serveradministrasjon.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hvordan kan jeg kontakte helpdesk?</h3>
+                    <p>Fyll ut skjemaet på Helpdesk-siden. Vårt team er klare til å hjelpe deg.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hva er prosessen for å bruke helpdesk-tjenestene?</h3>
+                    <p>Fyll ut skjemaet med kontaktinformasjon og problembeskrivelse, velg kontaktmetode og send inn.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hvordan administrerer jeg mine IT-oppgaver i adminpanelet?</h3>
+                    <p>Du kan fullføre, sette oppgaver på vent og tildele ressurser i adminpanelet.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hvordan får jeg mer informasjon om personvernet?</h3>
+                    <p>Les vår personvernerklæring på personvern-siden for mer informasjon.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Hva er vilkårene for bruk av tjenestene deres?</h3>
+                    <p>Ved å bruke tjenestene våre godtar du våre vilkår, som dekker bruk, ansvar og rettigheter.</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+

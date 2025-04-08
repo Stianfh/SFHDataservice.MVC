@@ -13,7 +13,9 @@ function updateView(){
         return personView ()
     } else if (currentPage == "vilkar"){
         return vilView ()
-    };
+    } else if (currentPage == "FAQ") {
+        return FAQView()
+    }
 }
 // updateView()
 
